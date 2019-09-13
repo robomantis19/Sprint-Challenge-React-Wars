@@ -21,7 +21,11 @@ const SWAPI = function(){
    return (
 
        <div>
-
+           {people.map((item, key) => {
+               return (
+               <StarGrid key={key} name={item.name}/>
+               )
+            })}
 
        </div>
    )
