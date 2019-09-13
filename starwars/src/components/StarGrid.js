@@ -5,7 +5,7 @@ import axios from 'axios';
 const Card = style.div`
    width: 300px;
    height: 500px;
-   background-color: white;
+   background-color: papayawhip;
    margin-bottom: 25%;
    padding-top: 10%; 
    text-shadow: 0 5px 10px #777;
