@@ -4,7 +4,7 @@ import axios from 'axios';
 import StarCard from './components/StarCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Fade } from 'reactstrap';
-const App = () => {
+const App = (props) => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -34,7 +34,7 @@ const App = () => {
 
   
   const toggle = () => (setPage(page+1),setFadeIn(!fadeIn));
-  
+  const [showMessage, setShowMessage] = useState(false)
   console.log("page: ", page)
   return (
     <div className="App" >
@@ -43,6 +43,7 @@ const App = () => {
                 {wars.map((item, index) => { 
                   return(
                     <StarCard 
+                    key={index}
                     name = {item.name}
                     birth_year ={item.birth_year}
                     height ={item.height}
@@ -63,7 +64,17 @@ const App = () => {
                   )
                 })}
                 </Fade>
-      {/* {randomDeck()} */}
+      {/* {testing()} */}
+      <div>
+        <label htmlFor="toggle">Show Message</label>
+        <input
+          id="toggle"
+          type="checkbox"
+          onChange={e => setShowMessage(e.target.checked)}
+          checked={showMessage}
+        />
+        <h2>{showMessage ? props.children : null}</h2>
+      </div>
       
     </div>
   );
